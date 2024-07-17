@@ -39,6 +39,24 @@
       "numberProperties": [],
       "stringProperties": [],
       "initialVariables": []
+    },
+    {
+      "angle": 0,
+      "customSize": true,
+      "depth": 120,
+      "height": 120,
+      "keepRatio": true,
+      "layer": "",
+      "name": "Player",
+      "persistentUuid": "c1edefe7-be7f-4393-97fb-8d710ef8e4c1",
+      "width": 120,
+      "x": 633,
+      "y": 508,
+      "z": 200,
+      "zOrder": 2,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
     }
   ],
   "objects": [
@@ -48,7 +66,42 @@
       "type": "Scene3D::Cube3DObject",
       "variables": [],
       "effects": [],
-      "behaviors": [],
+      "behaviors": [
+        {
+          "name": "Walk3D",
+          "type": "Walk3D::Walk3D",
+          "RotationSpeedMax": 180,
+          "RotationAcceleration": 720,
+          "RotationDeceleration": 720,
+          "TranslationSpeedMax": 400,
+          "TranslationAcceleration": 1600,
+          "TranslationDeceleration": 1600,
+          "CurrentRotationSpeed": 0,
+          "PreviousRotationSpeed": 0,
+          "CurrentForwardSpeed": 0,
+          "CurrentSidewaysSpeed": 0,
+          "PreviousForwardSpeed": 0,
+          "PreviousSidewaysSpeed": 0,
+          "HasPressedTurnLeft": false,
+          "HasPressedTurnRight": false,
+          "HasPressedTurnLeftLast": false,
+          "HadPressedTurnLeft": false,
+          "HadPressedTurnRight": false,
+          "HasPressedMoveForward": false,
+          "HasPressedMoveBackward": false,
+          "HadPressedMoveForward": false,
+          "HadPressedMoveBackward": false,
+          "HasPressedMoveBackwardLast": false,
+          "HasPressedMoveLeft": false,
+          "HasPressedMoveRight": false,
+          "HadPressedMoveLeft": false,
+          "HadPressedMoveRight": false,
+          "HasPressedMoveLeftLast": false,
+          "TargetedForwardSpeed": 0,
+          "TargetedSidewaysSpeed": 0,
+          "TargetedRotationSpeed": 0
+        }
+      ],
       "content": {
         "width": 100,
         "height": 100,
@@ -140,6 +193,110 @@
   "events": [
     {
       "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "KeyPressed"
+          },
+          "parameters": [
+            "",
+            "w"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "Walk3D::Walk3D::SimulateMoveRightKey"
+          },
+          "parameters": [
+            "Player",
+            "Walk3D",
+            "="
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "KeyPressed"
+          },
+          "parameters": [
+            "",
+            "s"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "Walk3D::Walk3D::SimulateMoveForwardKey"
+          },
+          "parameters": [
+            "Player",
+            "Walk3D",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "KeyPressed"
+          },
+          "parameters": [
+            "",
+            "a"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "Walk3D::Walk3D::SimulateMoveLeftKey"
+          },
+          "parameters": [
+            "Player",
+            "Walk3D",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "KeyPressed"
+          },
+          "parameters": [
+            "",
+            "d"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "Walk3D::Walk3D::SimulateMoveRightKey"
+          },
+          "parameters": [
+            "Player",
+            "Walk3D",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
       "conditions": [],
       "actions": []
     }
@@ -222,6 +379,12 @@
     {
       "name": "Text",
       "type": "TextContainerCapability::TextContainerBehavior"
+    },
+    {
+      "name": "Walk3D",
+      "type": "Walk3D::Walk3D",
+      "Cos": 0,
+      "Sin": 0
     }
   ]
 }
