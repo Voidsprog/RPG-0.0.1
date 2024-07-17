@@ -61,16 +61,16 @@
     {
       "angle": 0,
       "customSize": true,
-      "depth": 3645,
-      "height": 3645,
+      "depth": 4856,
+      "height": 4856,
       "keepRatio": true,
       "layer": "",
       "name": "Sky",
       "persistentUuid": "59d1b9e1-edca-42a9-b237-8e11af6070cf",
       "rotationX": -90,
-      "width": 3645,
-      "x": 933,
-      "y": 462,
+      "width": 4856,
+      "x": 981,
+      "y": 539,
       "z": -100,
       "zOrder": 3,
       "numberProperties": [],
@@ -236,175 +236,249 @@
   },
   "events": [
     {
-      "type": "BuiltinCommonInstructions::Standard",
-      "conditions": [
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "name": "Settings",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
         {
-          "type": {
-            "value": "KeyPressed"
-          },
-          "parameters": [
-            "",
-            "w"
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "MousePointerLock::RequestPointerLock"
+              },
+              "parameters": [
+                "",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "FirstPersonCamera::LookFromObjectEyes"
+              },
+              "parameters": [
+                "",
+                "Player",
+                "",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "SetFullScreen"
+              },
+              "parameters": [
+                "",
+                "yes",
+                ""
+              ]
+            }
           ]
         }
       ],
-      "actions": [
-        {
-          "type": {
-            "value": "Walk3D::Walk3D::SimulateMoveForwardKey"
-          },
-          "parameters": [
-            "Player",
-            "Walk3D",
-            ""
-          ]
-        }
-      ]
+      "parameters": []
     },
     {
-      "type": "BuiltinCommonInstructions::Standard",
-      "conditions": [
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Controls Settings",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
         {
-          "type": {
-            "value": "KeyPressed"
-          },
-          "parameters": [
-            "",
-            "s"
-          ]
-        }
-      ],
-      "actions": [
-        {
-          "type": {
-            "value": "Walk3D::Walk3D::SimulateMoveBackwardKey"
-          },
-          "parameters": [
-            "Player",
-            "Walk3D",
-            ""
-          ]
-        }
-      ]
-    },
-    {
-      "type": "BuiltinCommonInstructions::Standard",
-      "conditions": [
-        {
-          "type": {
-            "value": "KeyPressed"
-          },
-          "parameters": [
-            "",
-            "a"
-          ]
-        }
-      ],
-      "actions": [
-        {
-          "type": {
-            "value": "Walk3D::Walk3D::SimulateMoveLeftKey"
-          },
-          "parameters": [
-            "Player",
-            "Walk3D",
-            ""
-          ]
-        }
-      ]
-    },
-    {
-      "type": "BuiltinCommonInstructions::Standard",
-      "conditions": [
-        {
-          "type": {
-            "value": "KeyPressed"
-          },
-          "parameters": [
-            "",
-            "d"
-          ]
-        }
-      ],
-      "actions": [
-        {
-          "type": {
-            "value": "Walk3D::Walk3D::SimulateMoveRightKey"
-          },
-          "parameters": [
-            "Player",
-            "Walk3D",
-            ""
-          ]
-        }
-      ]
-    },
-    {
-      "type": "BuiltinCommonInstructions::Standard",
-      "conditions": [],
-      "actions": [
-        {
-          "type": {
-            "value": "FirstPersonCamera::LookFromObjectEyes"
-          },
-          "parameters": [
-            "",
-            "Player",
-            "",
-            ""
-          ]
-        }
-      ]
-    },
-    {
-      "type": "BuiltinCommonInstructions::Standard",
-      "conditions": [],
-      "actions": [
-        {
-          "type": {
-            "value": "Scene3D::Base3DBehavior::SetRotationY"
-          },
-          "parameters": [
-            "Player",
-            "Object3D",
-            "+",
-            "MousePointerLock::MovementY() * 0.2"
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "d"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Walk3D::Walk3D::SimulateMoveRightKey"
+              },
+              "parameters": [
+                "Player",
+                "Walk3D",
+                ""
+              ]
+            }
           ]
         },
         {
-          "type": {
-            "value": "Scene3D::Base3DBehavior::SetRotationY"
-          },
-          "parameters": [
-            "Player",
-            "Object3D",
-            "=",
-            "clamp(Player.Object3D::RotationY(), -90, 90)"
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "a"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Walk3D::Walk3D::SimulateMoveLeftKey"
+              },
+              "parameters": [
+                "Player",
+                "Walk3D",
+                ""
+              ]
+            }
           ]
         },
         {
-          "type": {
-            "value": "Scene3D::SetCameraZ"
-          },
-          "parameters": [
-            "",
-            "=",
-            "Player.Object3D::CenterZ()",
-            "",
-            "0"
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "s"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Walk3D::Walk3D::SimulateMoveBackwardKey"
+              },
+              "parameters": [
+                "Player",
+                "Walk3D",
+                ""
+              ]
+            }
           ]
         },
         {
-          "type": {
-            "value": "SetAngle"
-          },
-          "parameters": [
-            "Player",
-            "+",
-            "MousePointerLock::MovementX() * 0.2"
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "w"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Walk3D::Walk3D::SimulateMoveForwardKey"
+              },
+              "parameters": [
+                "Player",
+                "Walk3D",
+                ""
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "name": "Camera settings",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "Scene3D::SetCameraFov"
+              },
+              "parameters": [
+                "",
+                "=",
+                "75",
+                "",
+                "0"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "Scene3D::Base3DBehavior::SetRotationY"
+              },
+              "parameters": [
+                "Player",
+                "Object3D",
+                "+",
+                "MousePointerLock::MovementY() * 0.2"
+              ]
+            },
+            {
+              "type": {
+                "value": "Scene3D::Base3DBehavior::SetRotationY"
+              },
+              "parameters": [
+                "Player",
+                "Object3D",
+                "=",
+                "clamp(Player.Object3D::RotationY(), -90, 90)"
+              ]
+            },
+            {
+              "type": {
+                "value": "Scene3D::SetCameraZ"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Player.Object3D::CenterZ()",
+                "",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetAngle"
+              },
+              "parameters": [
+                "Player",
+                "+",
+                "MousePointerLock::MovementX() * 0.2"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
     }
   ],
   "layers": [
