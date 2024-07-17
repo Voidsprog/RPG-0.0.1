@@ -63,7 +63,19 @@
     "currentPlatform": "GDevelop JS platform"
   },
   "resources": {
-    "resources": [],
+    "resources": [
+      {
+        "file": "assets/NotoSansJP-Regular.ttf",
+        "kind": "font",
+        "metadata": "",
+        "name": "023630f11e6101f05ef9a2f9cffbf4e9e7046784f1360f1800e5ff1ab250c736_NotoSansJP-Regular.ttf",
+        "userAdded": true,
+        "origin": {
+          "identifier": "https://asset-resources.gdevelop.io/public-resources/Open Font License/Japanese/023630f11e6101f05ef9a2f9cffbf4e9e7046784f1360f1800e5ff1ab250c736_NotoSansJP-Regular.ttf",
+          "name": "gdevelop-asset-store"
+        }
+      }
+    ],
     "resourceFolders": []
   },
   "objects": [],
@@ -80,6 +92,10 @@
   ],
   "externalEvents": [],
   "eventsFunctionsExtensions": [
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/eventsFunctionsExtensions/fps"
+    },
     {
       "__REFERENCE_TO_SPLIT_OBJECT": true,
       "referenceTo": "/eventsFunctionsExtensions/physics3d"
@@ -99,10 +115,6 @@
     {
       "__REFERENCE_TO_SPLIT_OBJECT": true,
       "referenceTo": "/eventsFunctionsExtensions/terrain"
-    },
-    {
-      "__REFERENCE_TO_SPLIT_OBJECT": true,
-      "referenceTo": "/eventsFunctionsExtensions/withthreejs"
     }
   ],
   "externalLayouts": [],
