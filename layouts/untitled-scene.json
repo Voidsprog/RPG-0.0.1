@@ -18,7 +18,7 @@
     "gridColor": 10401023,
     "gridAlpha": 0.8,
     "snap": false,
-    "zoomFactor": 0.3645833333333333,
+    "zoomFactor": 0.17576384491805336,
     "windowMask": false
   },
   "objectsGroups": [],
@@ -54,6 +54,25 @@
       "y": 508,
       "z": 200,
       "zOrder": 2,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
+    },
+    {
+      "angle": 0,
+      "customSize": true,
+      "depth": 3645,
+      "height": 3645,
+      "keepRatio": true,
+      "layer": "",
+      "name": "Sky",
+      "persistentUuid": "59d1b9e1-edca-42a9-b237-8e11af6070cf",
+      "rotationX": -90,
+      "width": 3645,
+      "x": 933,
+      "y": 462,
+      "z": -100,
+      "zOrder": 3,
       "numberProperties": [],
       "stringProperties": [],
       "initialVariables": []
@@ -106,7 +125,7 @@
         "width": 100,
         "height": 100,
         "depth": 100,
-        "enableTextureTransparency": true,
+        "enableTextureTransparency": false,
         "facesOrientation": "Y",
         "frontFaceResourceName": "",
         "backFaceResourceName": "",
@@ -177,6 +196,28 @@
         "characterSize": 20,
         "color": "0;0;0"
       }
+    },
+    {
+      "assetStoreId": "",
+      "name": "Sky",
+      "type": "Scene3D::Model3DObject",
+      "variables": [],
+      "effects": [],
+      "behaviors": [],
+      "content": {
+        "centerLocation": "ModelOrigin",
+        "depth": 100,
+        "height": 100,
+        "keepAspectRatio": true,
+        "materialType": "StandardWithoutMetalness",
+        "modelResourceName": "sky.glb",
+        "originLocation": "ModelOrigin",
+        "rotationX": 0,
+        "rotationY": 0,
+        "rotationZ": 0,
+        "width": 100,
+        "animations": []
+      }
     }
   ],
   "objectsFolderStructure": {
@@ -184,6 +225,9 @@
     "children": [
       {
         "objectName": "Player"
+      },
+      {
+        "objectName": "Sky"
       },
       {
         "objectName": "FPS"
@@ -207,12 +251,12 @@
       "actions": [
         {
           "type": {
-            "value": "Walk3D::Walk3D::SimulateMoveRightKey"
+            "value": "Walk3D::Walk3D::SimulateMoveForwardKey"
           },
           "parameters": [
             "Player",
             "Walk3D",
-            "="
+            ""
           ]
         }
       ]
@@ -233,7 +277,7 @@
       "actions": [
         {
           "type": {
-            "value": "Walk3D::Walk3D::SimulateMoveForwardKey"
+            "value": "Walk3D::Walk3D::SimulateMoveBackwardKey"
           },
           "parameters": [
             "Player",
@@ -298,7 +342,69 @@
     {
       "type": "BuiltinCommonInstructions::Standard",
       "conditions": [],
-      "actions": []
+      "actions": [
+        {
+          "type": {
+            "value": "FirstPersonCamera::LookFromObjectEyes"
+          },
+          "parameters": [
+            "",
+            "Player",
+            "",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [],
+      "actions": [
+        {
+          "type": {
+            "value": "Scene3D::Base3DBehavior::SetRotationY"
+          },
+          "parameters": [
+            "Player",
+            "Object3D",
+            "+",
+            "MousePointerLock::MovementY() * 0.2"
+          ]
+        },
+        {
+          "type": {
+            "value": "Scene3D::Base3DBehavior::SetRotationY"
+          },
+          "parameters": [
+            "Player",
+            "Object3D",
+            "=",
+            "clamp(Player.Object3D::RotationY(), -90, 90)"
+          ]
+        },
+        {
+          "type": {
+            "value": "Scene3D::SetCameraZ"
+          },
+          "parameters": [
+            "",
+            "=",
+            "Player.Object3D::CenterZ()",
+            "",
+            "0"
+          ]
+        },
+        {
+          "type": {
+            "value": "SetAngle"
+          },
+          "parameters": [
+            "Player",
+            "+",
+            "MousePointerLock::MovementX() * 0.2"
+          ]
+        }
+      ]
     }
   ],
   "layers": [
@@ -348,6 +454,10 @@
     }
   ],
   "behaviorsSharedData": [
+    {
+      "name": "Animation",
+      "type": "AnimatableCapability::AnimatableBehavior"
+    },
     {
       "name": "Effect",
       "type": "EffectCapability::EffectBehavior"
