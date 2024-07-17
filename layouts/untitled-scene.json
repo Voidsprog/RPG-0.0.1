@@ -24,9 +24,25 @@
   "objectsGroups": [],
   "variables": [],
   "instances": [],
-  "objects": [],
+  "objects": [
+    {
+      "assetStoreId": "",
+      "name": "Render3D",
+      "type": "WithThreeJS::EnableWithThreeJS",
+      "variables": [],
+      "effects": [],
+      "behaviors": [],
+      "content": {},
+      "childrenContent": {}
+    }
+  ],
   "objectsFolderStructure": {
-    "folderName": "__ROOT"
+    "folderName": "__ROOT",
+    "children": [
+      {
+        "objectName": "Render3D"
+      }
+    ]
   },
   "events": [],
   "layers": [
@@ -75,5 +91,22 @@
       ]
     }
   ],
-  "behaviorsSharedData": []
+  "behaviorsSharedData": [
+    {
+      "name": "Flippable",
+      "type": "FlippableCapability::FlippableBehavior"
+    },
+    {
+      "name": "Object3D",
+      "type": "Scene3D::Base3DBehavior"
+    },
+    {
+      "name": "Resizable",
+      "type": "ResizableCapability::ResizableBehavior"
+    },
+    {
+      "name": "Scale",
+      "type": "ScalableCapability::ScalableBehavior"
+    }
+  ]
 }
