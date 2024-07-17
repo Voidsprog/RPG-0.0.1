@@ -81,6 +81,17 @@
         "metadata": "",
         "name": "sky.glb",
         "userAdded": true
+      },
+      {
+        "file": "assets/Grass Leafs Large.glb",
+        "kind": "model3D",
+        "metadata": "",
+        "name": "Grass Leafs Large.glb",
+        "userAdded": false,
+        "origin": {
+          "identifier": "https://asset-resources.gdevelop.io/public-resources/3D Nature/Plant/c74057f1047f41683a98b4405c2b9fd033a88bb3cdbd85d5ba575a15d439a03b_Grass Leafs Large.glb",
+          "name": "Grass Leafs Large.glb"
+        }
       }
     ],
     "resourceFolders": []
@@ -99,6 +110,10 @@
   ],
   "externalEvents": [],
   "eventsFunctionsExtensions": [
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/eventsFunctionsExtensions/cryptoapi"
+    },
     {
       "__REFERENCE_TO_SPLIT_OBJECT": true,
       "referenceTo": "/eventsFunctionsExtensions/sky3d"

@@ -18,23 +18,35 @@
     "gridColor": 10401023,
     "gridAlpha": 0.8,
     "snap": false,
-    "zoomFactor": 0.17576384491805336,
+    "zoomFactor": 0.28905162031349413,
     "windowMask": false
   },
   "objectsGroups": [],
-  "variables": [],
+  "variables": [
+    {
+      "folded": true,
+      "name": "TerrainCounter",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "CreateObjectsTerrain",
+      "type": "boolean",
+      "value": false
+    }
+  ],
   "instances": [
     {
       "angle": 0,
       "customSize": false,
       "height": 0,
       "keepRatio": true,
-      "layer": "",
+      "layer": "Layer",
       "name": "FPS",
       "persistentUuid": "386bd751-fa0a-4164-aee0-447ca441c347",
       "width": 0,
-      "x": 205,
-      "y": 113,
+      "x": 15,
+      "y": 128,
       "zOrder": 1,
       "numberProperties": [],
       "stringProperties": [],
@@ -50,8 +62,8 @@
       "name": "Player",
       "persistentUuid": "c1edefe7-be7f-4393-97fb-8d710ef8e4c1",
       "width": 120,
-      "x": 633,
-      "y": 508,
+      "x": 806,
+      "y": 451,
       "z": 200,
       "zOrder": 2,
       "numberProperties": [],
@@ -69,10 +81,27 @@
       "persistentUuid": "59d1b9e1-edca-42a9-b237-8e11af6070cf",
       "rotationX": -90,
       "width": 4856,
-      "x": 981,
-      "y": 539,
+      "x": 1353,
+      "y": 415,
       "z": -100,
       "zOrder": 3,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 0,
+      "keepRatio": true,
+      "layer": "",
+      "name": "ObjectPlacerTerrain",
+      "persistentUuid": "f93cd0bd-d199-4e5d-ad0a-2a02f268c69b",
+      "width": 0,
+      "x": 0,
+      "y": 0,
+      "z": 1000,
+      "zOrder": 4,
       "numberProperties": [],
       "stringProperties": [],
       "initialVariables": []
@@ -86,6 +115,29 @@
       "variables": [],
       "effects": [],
       "behaviors": [
+        {
+          "name": "Jump3D",
+          "type": "Jump3D::Jump3D",
+          "Object3D": "Object3D",
+          "JumpHeight": 150,
+          "MaxFallingSpeed": 700,
+          "Gravity": 1000,
+          "JumpSpeed": 600,
+          "JumpSustainDurationMax": 0.2,
+          "State": "Idle",
+          "CurrentJumpSpeed": 0.19999992847454,
+          "CurrentFallSpeed": 0.19999992847454,
+          "PreviousJumpSpeed": 0.19999992847454,
+          "PreviousFallSpeed": 0.19999992847454,
+          "HasPressedJumpKey": false,
+          "CanJump": true,
+          "ShouldStopAtZero": true,
+          "PreviousState": "Idle"
+        },
+        {
+          "name": "Tween",
+          "type": "Tween::TweenBehavior"
+        },
         {
           "name": "Walk3D",
           "type": "Walk3D::Walk3D",
@@ -170,7 +222,7 @@
       "string": "",
       "font": "023630f11e6101f05ef9a2f9cffbf4e9e7046784f1360f1800e5ff1ab250c736_NotoSansJP-Regular.ttf",
       "textAlignment": "left",
-      "characterSize": 20,
+      "characterSize": 100,
       "color": {
         "b": 0,
         "g": 0,
@@ -193,7 +245,7 @@
         "text": "",
         "font": "023630f11e6101f05ef9a2f9cffbf4e9e7046784f1360f1800e5ff1ab250c736_NotoSansJP-Regular.ttf",
         "textAlignment": "left",
-        "characterSize": 20,
+        "characterSize": 100,
         "color": "0;0;0"
       }
     },
@@ -218,6 +270,63 @@
         "width": 100,
         "animations": []
       }
+    },
+    {
+      "assetStoreId": "",
+      "name": "ObjectPlacerTerrain",
+      "type": "Scene3D::Cube3DObject",
+      "variables": [],
+      "effects": [],
+      "behaviors": [],
+      "content": {
+        "width": 100,
+        "height": 100,
+        "depth": 100,
+        "enableTextureTransparency": false,
+        "facesOrientation": "Y",
+        "frontFaceResourceName": "",
+        "backFaceResourceName": "",
+        "backFaceUpThroughWhichAxisRotation": "X",
+        "leftFaceResourceName": "",
+        "rightFaceResourceName": "",
+        "topFaceResourceName": "",
+        "bottomFaceResourceName": "",
+        "frontFaceVisible": true,
+        "backFaceVisible": false,
+        "leftFaceVisible": true,
+        "rightFaceVisible": true,
+        "topFaceVisible": true,
+        "bottomFaceVisible": true,
+        "frontFaceResourceRepeat": false,
+        "backFaceResourceRepeat": false,
+        "leftFaceResourceRepeat": false,
+        "rightFaceResourceRepeat": false,
+        "topFaceResourceRepeat": false,
+        "bottomFaceResourceRepeat": false,
+        "materialType": "Basic"
+      }
+    },
+    {
+      "assetStoreId": "a70efe4694a9812ad28c245a6d06928d7191570fa27da2210b98b531d8ed455e",
+      "name": "GrassLeafsLarge",
+      "type": "Scene3D::Model3DObject",
+      "variables": [],
+      "effects": [],
+      "behaviors": [],
+      "content": {
+        "centerLocation": "ModelOrigin",
+        "depth": 50,
+        "height": 50,
+        "keepAspectRatio": true,
+        "materialType": "StandardWithoutMetalness",
+        "modelResourceName": "Grass Leafs Large.glb",
+        "originLocation": "ModelOrigin",
+        "rotationX": 90,
+        "rotationY": 0,
+        "rotationZ": -90,
+        "width": 50,
+        "animations": []
+      }
     }
   ],
   "objectsFolderStructure": {
@@ -228,6 +337,12 @@
       },
       {
         "objectName": "Sky"
+      },
+      {
+        "objectName": "GrassLeafsLarge"
+      },
+      {
+        "objectName": "ObjectPlacerTerrain"
       },
       {
         "objectName": "FPS"
@@ -481,6 +596,447 @@
         }
       ],
       "parameters": []
+    },
+    {
+      "colorB": 87,
+      "colorG": 87,
+      "colorR": 87,
+      "creationTime": 0,
+      "name": "Terrain",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "DepartScene"
+              },
+              "parameters": [
+                "TerrainCounter"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Terrain::CreatePlaneColor"
+              },
+              "parameters": [
+                "",
+                "\"Terrain\"",
+                "\"55;95;20\"",
+                "5000",
+                "5000",
+                "0",
+                "10000",
+                "10000",
+                "1000",
+                "",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "TerrainCounter",
+                ">=",
+                "51"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Terrain::Make_Mount"
+              },
+              "parameters": [
+                "",
+                "\"Terrain\"",
+                "CryptoApi::RandomInRange(1000,9000)",
+                "CryptoApi::RandomInRange(1000,9000)",
+                "600",
+                "300",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "TerrainCounter",
+                "+",
+                "1"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Terrain basic Color "
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "Terrain::SetZColor"
+              },
+              "parameters": [
+                "",
+                "\"Terrain\"",
+                "\"65;117;5\"",
+                "2000",
+                "300",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Terrain::SetZColor"
+              },
+              "parameters": [
+                "",
+                "\"Terrain\"",
+                "\"126;211;33\"",
+                "300",
+                "200",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Terrain::SetZColor"
+              },
+              "parameters": [
+                "",
+                "\"Terrain\"",
+                "\"248;231;28\"",
+                "200",
+                "0",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "colorB": 87,
+          "colorG": 87,
+          "colorR": 87,
+          "creationTime": 0,
+          "name": "Object Generator for Terrain",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": " this can be used to put objects in the scene like trees and rocks you just have to change some values - use a while loop to make it faster but it will take away a lot of performance"
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "DepartScene"
+                  },
+                  "parameters": [
+                    "TerrainCounter"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreXY"
+                  },
+                  "parameters": [
+                    "ObjectPlacerTerrain",
+                    "=",
+                    "0",
+                    "=",
+                    "0"
+                  ]
+                }
+              ]
+            },
+            {
+              "disabled": true,
+              "infiniteLoopWarning": true,
+              "type": "BuiltinCommonInstructions::While",
+              "whileConditions": [
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "PosX"
+                  },
+                  "parameters": [
+                    "ObjectPlacerTerrain",
+                    ">",
+                    "9999"
+                  ]
+                }
+              ],
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "ObjectPlacerTerrain",
+                    "+",
+                    "50"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "GrassLeafsLarge",
+                    "ObjectPlacerTerrain.CenterX()",
+                    "ObjectPlacerTerrain.CenterY()",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Scene3D::Base3DBehavior::SetZ"
+                  },
+                  "parameters": [
+                    "GrassLeafsLarge",
+                    "Object3D",
+                    "=",
+                    "Terrain::Z_near_point(\"Terrain\",ObjectPlacerTerrain.CenterX(),ObjectPlacerTerrain.CenterY())+10"
+                  ]
+                }
+              ]
+            },
+            {
+              "disabled": true,
+              "infiniteLoopWarning": true,
+              "type": "BuiltinCommonInstructions::While",
+              "whileConditions": [
+                {
+                  "type": {
+                    "value": "PosX"
+                  },
+                  "parameters": [
+                    "ObjectPlacerTerrain",
+                    ">",
+                    "9999"
+                  ]
+                }
+              ],
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreY"
+                  },
+                  "parameters": [
+                    "ObjectPlacerTerrain",
+                    "+",
+                    "50"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "ObjectPlacerTerrain",
+                    "=",
+                    "0"
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": []
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 87,
+      "colorG": 87,
+      "colorR": 87,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Jump/Terrain ColisionHeigth",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "I'm using a tween because if I just change the elevation the camera shakes "
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Space"
+              ]
+            },
+            {
+              "type": {
+                "inverted": true,
+                "value": "Jump3D::Jump3D::IsJumping"
+              },
+              "parameters": [
+                "Player",
+                "Jump3D",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Tween::AddObjectPositionZTween2"
+              },
+              "parameters": [
+                "Player",
+                "Tween",
+                "Object3D",
+                "\"Terrain\"",
+                "Terrain::Z_near_point(\"Terrain\",Player.CenterX(),Player.CenterY())",
+                "\"linear\"",
+                "0.05",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Jump3D::Jump3D::Land"
+              },
+              "parameters": [
+                "Player",
+                "Jump3D",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Space"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Jump3D::Jump3D::SimulateJumpKey"
+              },
+              "parameters": [
+                "Player",
+                "Jump3D",
+                ""
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 87,
+      "colorG": 87,
+      "colorR": 87,
+      "creationTime": 0,
+      "folded": true,
+      "name": "SkyBox",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "Sky",
+                "=",
+                "Player.CenterX()",
+                "=",
+                "Player.CenterY()"
+              ]
+            },
+            {
+              "type": {
+                "value": "Scene3D::Base3DBehavior::SetZ"
+              },
+              "parameters": [
+                "Sky",
+                "Object3D",
+                "=",
+                "Player.Object3D::CenterZ()"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
     }
   ],
   "layers": [
@@ -527,6 +1083,39 @@
           "booleanParameters": {}
         }
       ]
+    },
+    {
+      "ambientLightColorB": 200,
+      "ambientLightColorG": 200,
+      "ambientLightColorR": 200,
+      "camera3DFarPlaneDistance": 10000,
+      "camera3DFieldOfView": 45,
+      "camera3DNearPlaneDistance": 3,
+      "cameraType": "",
+      "followBaseLayerCamera": false,
+      "isLightingLayer": false,
+      "isLocked": false,
+      "name": "Layer",
+      "renderingType": "",
+      "visibility": true,
+      "cameras": [],
+      "effects": [
+        {
+          "effectType": "Scene3D::HemisphereLight",
+          "name": "3D Light",
+          "doubleParameters": {
+            "elevation": 45,
+            "intensity": 1,
+            "rotation": 0
+          },
+          "stringParameters": {
+            "groundColor": "64;64;64",
+            "skyColor": "255;255;255",
+            "top": "Y-"
+          },
+          "booleanParameters": {}
+        }
+      ]
     }
   ],
   "behaviorsSharedData": [
@@ -547,6 +1136,10 @@
       "type": "FlippableCapability::FlippableBehavior"
     },
     {
+      "name": "Jump3D",
+      "type": "Jump3D::Jump3D"
+    },
+    {
       "name": "Object3D",
       "type": "Scene3D::Base3DBehavior"
     },
@@ -565,6 +1158,10 @@
     {
       "name": "Text",
       "type": "TextContainerCapability::TextContainerBehavior"
+    },
+    {
+      "name": "Tween",
+      "type": "Tween::TweenBehavior"
     },
     {
       "name": "Walk3D",
